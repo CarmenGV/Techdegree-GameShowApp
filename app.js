@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		};
 		return ul;
 	}
-	//displaying phrase on screen
+
 	function display(){
 		const phraseArray = getRandomPhraseArray(randPhrase);
 		addPhraseToDisplay(phraseArray);
@@ -70,6 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		whileLoop(ul);
 		display();
 
+		//removing text from overlay
+		const h3 = document.getElementsByTagName('h3');
+		if(h3.length>=1){
+			overlay.removeChild(h3[0]);
+		}
+
 		//storing button info in array
 		const oldButtons = document.getElementsByTagName('button');
 		const buttonContent = [];
@@ -92,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		//adding new buttons
-		for(i=0; i<=26; i++){
+		for(i=0; i<26; i++){
 			if(i<10){
 				addNewButtons(0);
 			} else if(i>=10 && i<19){
@@ -111,21 +117,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	function overlayStart(oClass, content){
+	function overlayStart(oClass, content, winLose){
+		const text = document.createElement('h3');
 		overlay.className = oClass;
 		overlay.style.display = "flex";
 		start.textContent = content;
 		start.addEventListener('click', reset());
+		text.textContent = winLose;
+		overlay.appendChild(text);
 	}
 
 	function checkWin() {
 		const totalLetters = document.getElementsByClassName("letter");
 		const totalGuessed = document.getElementsByClassName("show");
 		if(totalLetters.length === totalGuessed.length){
-			overlayStart("win","Play Again");
+			overlayStart("win","Play Again","You Win!");
 		}
 		if(missed === 5){
-			overlayStart("lose", "Try Again");
+			overlayStart("lose", "Try Again","You Lose!");
 		}
 	}
 
@@ -135,8 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		for(i=0; i<buttons.length; i++){
 			let button = buttons[i];
 			button.addEventListener('click', (e)=>{
-				e.target.className = "chosen";
-				e.target.disabled = true;
 				letterFound = checkedLetter(e.target);
 				if(letterFound==null){
 					missed += 1;
@@ -144,13 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
 					const childTries = document.getElementsByClassName('tries')[0];
 					tries.push(childTries);
 					parentTries.removeChild(childTries);
+					e.target.className = "chosen";
+				} else {
+					e.target.className = "matched";
 				}
+				e.target.disabled = true;
 				checkWin();
 			});
 		}
 	}
 
-	//initializing game....................................................
+	//initialize game....................................................
 	start.addEventListener('click', ()=>{
 		overlay.style.display = 'none';
 	});

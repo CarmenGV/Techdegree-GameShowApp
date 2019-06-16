@@ -34,12 +34,16 @@ li, ol, ul {
   display: inline-block;
 }
 
-h2 {
+h2, h3 {
   margin: 0;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
   font-size: var(--font-size-large);
   margin: 0;
+}
+
+h3 {
+  font-size: 30px;
 }
 
 button {
@@ -97,7 +101,7 @@ button {
 }
 
 .show {
-  color: #000;
+  color: #fff;
   background-color: #33cccc;
   -webkit-transition: -webkit-transform 1s;
   transition: transform 1s;
@@ -116,6 +120,13 @@ button {
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+}
+
+.matched {
+  background: #ff9933;
+  border-radius: 5px;
+  font-size: var(--font-size-medium);
+  color: #fff;
 }
 
 .btn__reset {
@@ -168,4 +179,8 @@ button {
 
 .lose a {
   color: var(--color-lose);
+}
+
+.tries {
+  margin: 0 3px;
 }
