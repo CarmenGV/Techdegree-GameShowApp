@@ -9,9 +9,11 @@ Upon landing on the page, users are greeted with an inviation to play a Wheel of
 
 After clicking start, users are presented with a group of boxes an letters displayed as a keyboard on the bottom which they can interact with to guess the mystery phrase.
 
+![Game Start](https://drive.google.com/uc?id=1Qc5D82e_FLMlBrNQR2-S9_C6wDnhgZ_J&sz=600)
+
 Each player starts with five hearts. When they guess incorrectly, they lose a heart and the letter turns blue to mark it as incorrect. When they guess correctly, the letter is revealed in the mystery phrase and the letter in the keyboard section turns orange to mark it as correct:
 
-![Game Start](https://drive.google.com/uc?id=1Qc5D82e_FLMlBrNQR2-S9_C6wDnhgZ_J&sz=600)
+![Game Play](https://drive.google.com/uc?id=1iFBaYScZpaJksfcArOqvbfLkf_svQmRH&sz=600)
 
 If the player loses all of their hearts before correctly guessing the mystery phrase, they are presented with the lose screen:
 
