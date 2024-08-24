@@ -1,4 +1,4 @@
-# Techdegree-GameShowApp
+# Game Show App
 
 This project was built using HTML, Sass, and pure JavaScript. HTML provides placeholders on the page that the JS dynamically changes as users interact with the elements on the page.  
 
